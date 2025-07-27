@@ -1,38 +1,51 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Clock, Github, Linkedin, Instagram, MessageCircle, Send, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import MapView from '../components/MapView';
+import React, { useState } from "react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Clock,
+  Github,
+  Linkedin,
+  Instagram,
+  MessageCircle,
+  Send,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
+import MapView from "../components/MapView";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    subject: '',
-    message: ''
+    fullName: "",
+    email: "",
+    subject: "",
+    message: "",
   });
-  
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = () => {
     if (!formData.fullName || !formData.email || !formData.message) {
-      alert('Please fill in all required fields');
+      alert("Please fill in all required fields");
       return;
     }
     // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setIsSubmitted(true);
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ fullName: '', email: '', subject: '', message: '' });
+      setFormData({ fullName: "", email: "", subject: "", message: "" });
     }, 3000);
   };
 
@@ -43,16 +56,19 @@ const ContactUs = () => {
   const faqs = [
     {
       question: "How can I collaborate or speak at one of your events?",
-      answer: "You can email us directly or select 'Partnership' in the contact form subject dropdown."
+      answer:
+        "You can email us directly or select 'Partnership' in the contact form subject dropdown.",
     },
     {
       question: "Do I get access to past event resources?",
-      answer: "Yes! After attending any event, you'll receive a digital resource pack with slides, recordings, and speaker notes if available."
+      answer:
+        "Yes! After attending any event, you'll receive a digital resource pack with slides, recordings, and speaker notes if available.",
     },
     {
       question: "Can I contribute as a developer or designer to the platform?",
-      answer: "Absolutely — we're always looking for open-source contributors and mentors. Reach out via the form!"
-    }
+      answer:
+        "Absolutely — we're always looking for open-source contributors and mentors. Reach out via the form!",
+    },
   ];
 
   return (
@@ -67,7 +83,8 @@ const ContactUs = () => {
             Let's Connect — We'd Love to Hear From You
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Whether you have questions, ideas, feedback, or collaboration proposals — we're here and ready to chat.
+            Whether you have questions, ideas, feedback, or collaboration
+            proposals — we're here and ready to chat.
           </p>
         </div>
       </section>
@@ -79,13 +96,17 @@ const ContactUs = () => {
             {/* Contact Details */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-[#0b1d51] mb-8">Reach Us At</h2>
-                
+                <h2 className="text-3xl font-bold text-[#0b1d51] mb-8">
+                  Reach Us At
+                </h2>
+
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <Mail className="w-6 h-6 text-[#0b1d51] mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Email
+                      </h3>
                       <p className="text-gray-600">support@skillswap.com</p>
                     </div>
                   </div>
@@ -93,10 +114,14 @@ const ContactUs = () => {
                   <div className="flex items-start space-x-4">
                     <MapPin className="w-6 h-6 text-[#0b1d51] mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Address
+                      </h3>
                       <p className="text-gray-600">
-                        TechLink HQ, Innovation Block, 3rd Floor<br />
-                        ABC University Campus<br />
+                        TechLink HQ, Innovation Block, 3rd Floor
+                        <br />
+                        ABC University Campus
+                        <br />
                         New Delhi, India – 110001
                       </p>
                     </div>
@@ -105,7 +130,9 @@ const ContactUs = () => {
                   <div className="flex items-start space-x-4">
                     <Phone className="w-6 h-6 text-[#0b1d51] mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Phone
+                      </h3>
                       <p className="text-gray-600">+91-98765-43210</p>
                     </div>
                   </div>
@@ -113,8 +140,12 @@ const ContactUs = () => {
                   <div className="flex items-start space-x-4">
                     <Clock className="w-6 h-6 text-[#0b1d51] mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Support Hours</h3>
-                      <p className="text-gray-600">Mon–Fri | 10:00 AM – 6:00 PM IST</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Support Hours
+                      </h3>
+                      <p className="text-gray-600">
+                        Mon–Fri | 10:00 AM – 6:00 PM IST
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -122,47 +153,62 @@ const ContactUs = () => {
 
               {/* Social Links */}
               <div>
-                <h3 className="font-semibold text-gray-900 mb-4">Connect With Us</h3>
+                <h3 className="font-semibold text-gray-900 mb-4">
+                  Connect With Us
+                </h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-12 h-12 bg-[#0b1d51] text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-[#0b1d51] text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                  >
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-[#0b1d51] text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-[#0b1d51] text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                  >
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-[#0b1d51] text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-[#0b1d51] text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                  >
                     <Github className="w-5 h-5" />
                   </a>
                 </div>
               </div>
 
-              {/* Embedded Map */}
-              {/* Embedded Map */}
-<div className="bg-gray-200 rounded-lg h-64">
-  <div className="text-center text-gray-500 mb-2">
-  
-  </div>
-  <div className="h-full w-full">
-    <MapView />
-  </div>
-</div>
-
+              <div className="bg-gray-200 rounded-lg h-64">
+                <div className="text-center text-gray-500 mb-2"></div>
+                <div className="h-full w-full">
+                  <MapView />
+                </div>
+              </div>
             </div>
 
             {/* Contact Form */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-[#0b1d51] mb-6">Send Us a Message</h2>
-              
+              <h2 className="text-2xl font-bold text-[#0b1d51] mb-6">
+                Send Us a Message
+              </h2>
+
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank you for reaching out!</h3>
-                  <p className="text-gray-600">We'll get back to you within 24–48 hours.</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Thank you for reaching out!
+                  </h3>
+                  <p className="text-gray-600">
+                    We'll get back to you within 24–48 hours.
+                  </p>
                 </div>
               ) : (
                 <div className="space-y-6">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="fullName"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -178,7 +224,10 @@ const ContactUs = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -194,7 +243,10 @@ const ContactUs = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Subject
                     </label>
                     <select
@@ -214,7 +266,10 @@ const ContactUs = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -247,8 +302,10 @@ const ContactUs = () => {
       {/* FAQ Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#0b1d51] text-center mb-12">Frequently Asked Questions</h2>
-          
+          <h2 className="text-3xl font-bold text-[#0b1d51] text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="border border-gray-200 rounded-lg">
@@ -256,7 +313,9 @@ const ContactUs = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  <span className="font-semibold text-gray-900">
+                    {faq.question}
+                  </span>
                   {expandedFaq === index ? (
                     <ChevronUp className="w-5 h-5 text-[#0b1d51]" />
                   ) : (
@@ -277,12 +336,15 @@ const ContactUs = () => {
       {/* Final CTA */}
       <section className="py-16 px-4 bg-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-[#0b1d51] mb-4">Still have questions?</h2>
+          <h2 className="text-3xl font-bold text-[#0b1d51] mb-4">
+            Still have questions?
+          </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Don't hesitate. Whether you're curious about joining, speaking, mentoring, or just have a suggestion — we're all ears.
+            Don't hesitate. Whether you're curious about joining, speaking,
+            mentoring, or just have a suggestion — we're all ears.
           </p>
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="bg-[#0b1d51] text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center space-x-2"
           >
             <MessageCircle className="w-5 h-5" />
