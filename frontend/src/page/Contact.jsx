@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone, Clock, Github, Linkedin, Instagram, MessageCircle, Send, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import MapView from '../components/MapView';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -136,13 +137,16 @@ const ContactUs = () => {
               </div>
 
               {/* Embedded Map */}
-              <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <MapPin className="w-12 h-12 mx-auto mb-2" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">(Google Maps would be embedded here)</p>
-                </div>
-              </div>
+              {/* Embedded Map */}
+<div className="bg-gray-200 rounded-lg h-64">
+  <div className="text-center text-gray-500 mb-2">
+  
+  </div>
+  <div className="h-full w-full">
+    <MapView />
+  </div>
+</div>
+
             </div>
 
             {/* Contact Form */}
